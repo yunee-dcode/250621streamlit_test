@@ -26,7 +26,7 @@ elif not st.session_state["loading_done"]:
 
     # 파란 막대 애니메이션
     for percent in range(101):
-        time.sleep(0.01)  # 속도 조절
+        time.sleep(3)  # 속도 조절
         progress.progress(percent, text=f"불러오는 중... {percent}%")
 
     st.session_state["loading_done"] = True
