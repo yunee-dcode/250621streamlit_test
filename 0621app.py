@@ -6,7 +6,7 @@ st.title("👩‍🏫Yoonie Teacher's chatbot")
 client = OpenAI()
 
 # 말투 선택
-tone = st.radio("원하는 말투를 선택하세요 👇", ("높임말", "반말"), horizontal=True)
+tone = st.radio("원하는 대화방식을 선택하세요 👇", ("높임말", "반말"), horizontal=True)
 
 # 모델 설정
 if "openai_model" not in st.session_state:
@@ -31,7 +31,7 @@ if prompt := st.chat_input("지금 기분은 어때?"):
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        st.markdown("👩‍🏫 안녕하세요~ 선생님이에요! 무엇이 궁금한가요?")
+        st.markdown("👩‍🏫 안녕하세요~ 선생님이에요! 답변을 기다려주세요.")
 
     # 말투에 따라 system prompt 설정
     if tone == "높임말":
