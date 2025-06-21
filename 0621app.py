@@ -1,7 +1,7 @@
 from openai import OpenAI
 import streamlit as st
 
-st.title("Yoon Teacher's chatbot")
+st.title("Yoonie Teacher's chatbot")
 
 client = OpenAI()
 
