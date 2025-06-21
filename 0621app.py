@@ -1,7 +1,25 @@
 from openai import OpenAI
 import streamlit as st
 
-st.title("👩‍🏫Yoonie Teacher's chatbot")
+# 비밀번호 설정 (원하면 환경변수로도 가능)
+PASSWORD = "teacher123"
+
+# 비밀번호 확인 세션 상태로 저장
+if "authenticated" not in st.session_state:
+    st.session_state["authenticated"] = False
+
+# 로그인 처리
+if not st.session_state["authenticated"]:
+    st.title("🔐 비밀번호가 필요합니다")
+    password = st.text_input("비밀번호를 입력하세요:", type="password")
+    if password == PASSWORD:
+        st.session_state["authenticated"] = True
+        st.experimental_rerun()
+    elif password:
+        st.error("비밀번호가 틀렸어요.")
+else:
+    # 🔓 여기부터 원래 앱 내용 시작
+    st.title("👩‍🏫Yoonie Teacher's chatbot")
 
 client = OpenAI()
 
