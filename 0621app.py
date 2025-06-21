@@ -19,7 +19,18 @@ if not st.session_state["authenticated"]:
         st.button("👉 계속하기")  # 다음 렌더링 유도용 버튼
     elif password:
         st.error("비밀번호가 틀렸어요. 다시 시도해보세요.")
+# 로딩 화면
+elif not st.session_state["loading_done"]:
+    st.title("🔄 로딩 중입니다...")
+    progress = st.progress(0, text="잠시만 기다려 주세요...")
 
+    # 파란 막대 애니메이션
+    for percent in range(101):
+        time.sleep(0.01)  # 속도 조절
+        progress.progress(percent, text=f"불러오는 중... {percent}%")
+
+    st.session_state["loading_done"] = True
+    st.rerun()
 # ✅ 로그인 성공하면 챗봇 페이지
 if st.session_state["authenticated"]:
     st.title("Yoon Teacher's chatbot")
