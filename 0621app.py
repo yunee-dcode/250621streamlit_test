@@ -30,6 +30,9 @@ if prompt := st.chat_input("지금 기분은 어때?"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
+    with st.chat_message("assistant"):
+        st.markdown("👩‍🏫 안녕하세요~ 선생님이에요! 무엇이 궁금한가요?")
+
     # 말투에 따라 system prompt 설정
     if tone == "높임말":
         system_prompt = {
