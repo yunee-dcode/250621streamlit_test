@@ -26,7 +26,7 @@ if st.session_state["authenticated"]:
 
     client = OpenAI()
 
-    tone = st.radio("말투 선택:", ("높임말", "반말"), horizontal=True)
+    tone = st.radio("대화방식 선택:", ("높임말", "반말"), horizontal=True)
 
     if "openai_model" not in st.session_state:
         st.session_state["openai_model"] = "gpt-4.1"
