@@ -58,8 +58,8 @@ if prompt := st.chat_input("지금 기분은 어때?"):
         )
 
         for chunk in stream:
-        if chunk.choices[0].delta.content:
-            full_response += chunk.choices[0].delta.content
+            if chunk.choices[0].delta.content:
+                full_response += chunk.choices[0].delta.content
 
     # 🎯 한 번에 출력 (세로쓰기 방지)
     st.markdown(full_response)
